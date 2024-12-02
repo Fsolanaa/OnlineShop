@@ -1,47 +1,71 @@
 <script>
-  import svelteLogo from './assets/svelte.svg'
-  import viteLogo from '/vite.svg'
-  import Counter from './lib/Counter.svelte'
+  import Router, { location, link } from "svelte-spa-router";
+  
+  import Pedidos from "./lib/RegistroPedidos.svelte";
+  import Inventario from "./lib/ControlInventario.svelte";
+  import Productos from "./lib/GestionProductos.svelte";
+  import Ventas from "./lib/InformeVentas.svelte";
 </script>
 
 <main>
-  <div>
-    <a href="https://vite.dev" target="_blank" rel="noreferrer">
-      <img src={viteLogo} class="logo" alt="Vite Logo" />
-    </a>
-    <a href="https://svelte.dev" target="_blank" rel="noreferrer">
-      <img src={svelteLogo} class="logo svelte" alt="Svelte Logo" />
-    </a>
-  </div>
-  <h1>Vite + Svelte</h1>
-
-  <div class="card">
-    <Counter />
-  </div>
-
-  <p>
-    Check out <a href="https://github.com/sveltejs/kit#readme" target="_blank" rel="noreferrer">SvelteKit</a>, the official Svelte app framework powered by Vite!
-  </p>
-
-  <p class="read-the-docs">
-    Click on the Vite and Svelte logos to learn more
-  </p>
+  <nav>
+    <ul>
+      <li><a href="/pedidos" use:link>Pedidos</a></li>
+      <li><a href="/inventario" use:link>Inventario</a></li>
+      <li><a href="/productos" use:link>Productos</a></li>
+      <li><a href="/ventas" use:link>Ventas</a></li>
+    </ul>
+  </nav>
+  <Router
+    routes={{      
+      "/pedidos": Pedidos,
+      "/inventario": Inventario,
+      "/productos": Productos,
+      "/ventas": Ventas,
+    }}
+  />
 </main>
 
 <style>
-  .logo {
-    height: 6em;
-    padding: 1.5em;
-    will-change: filter;
-    transition: filter 300ms;
+  main {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
   }
-  .logo:hover {
-    filter: drop-shadow(0 0 2em #646cffaa);
-  }
-  .logo.svelte:hover {
-    filter: drop-shadow(0 0 2em #ff3e00aa);
-  }
-  .read-the-docs {
-    color: #888;
-  }
+  nav {
+        background-color: #1a1a2e; /* Fondo oscuro profundo */
+        padding: 1rem;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.3); /* Sombra sutil */
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    a {
+        text-decoration: none;
+        color: #e0e0e0; /* Gris claro para texto */
+        font-weight: bold;
+        transition: all 0.3s ease; /* Transición suave */
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+    }
+
+    a:hover {
+        background-color: #16213e; /* Color de fondo al pasar el mouse */
+        color: white;
+        transform: scale(1.05); /* Efecto de zoom sutil */
+    }
+
+    /* Estado activo */
+    a.active {
+        color: #0f3460; /* Color de enlace activo */
+        background-color: #e94560; /* Fondo de enlace activo */
+    }
 </style>
