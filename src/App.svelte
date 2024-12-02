@@ -9,10 +9,10 @@
 <header>
   <nav>
     <ul>
-      <li><a href="/pedidos" use:link>Pedidos</a></li>
-      <li><a href="/inventario" use:link>Inventario</a></li>
-      <li><a href="/productos" use:link>Productos</a></li>
-      <li><a href="/ventas" use:link>Ventas</a></li>
+      <li><a href="pedidos" use:link>Pedidos</a></li>
+      <li><a href="inventario" use:link>Inventario</a></li>
+      <li><a href="productos" use:link>Productos</a></li>
+      <li><a href="ventas" use:link>Ventas</a></li>
     </ul>
   </nav>
 </header>
@@ -26,6 +26,11 @@
       "/ventas": Ventas,
     }}
   />
+
+  <div>
+    <Productos />
+  </div>
+
 </main>
 
 <style>
