@@ -1,39 +1,19 @@
 <script>
-  import Router, { location, link } from "svelte-spa-router";
-  
-  import Pedidos from "./lib/RegistroPedidos.svelte";
-  import Inventario from "./lib/ControlInventario.svelte";
-  import Productos from "./lib/GestionProductos.svelte";
-  import Ventas from "./lib/InformeVentas.svelte";
+    import { link } from "svelte-spa-router";
 </script>
 
-<main>
-  <nav>
+<nav>
     <ul>
-      <li><a href="/pedidos" use:link>Pedidos</a></li>
-      <li><a href="/inventario" use:link>Inventario</a></li>
-      <li><a href="/productos" use:link>Productos</a></li>
-      <li><a href="/ventas" use:link>Ventas</a></li>
+        <li><a href="/" use:link>Inicio</a></li>
+        <li><a href="/pedidos" use:link>Pedidos</a></li>
+        <li><a href="/inventario" use:link>Inventario</a></li>
+        <li><a href="/productos" use:link>Productos</a></li>
+        <li><a href="/ventas" use:link>Ventas</a></li>
     </ul>
-  </nav>
-  <Router
-    routes={{      
-      "/pedidos": Pedidos,
-      "/inventario": Inventario,
-      "/productos": Productos,
-      "/ventas": Ventas,
-    }}
-  />
-</main>
+</nav>
 
 <style>
-  main {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  nav {
+    nav {
         background-color: #1a1a2e; /* Fondo oscuro profundo */
         padding: 1rem;
         box-shadow: 0 2px 5px rgba(0,0,0,0.3); /* Sombra sutil */
