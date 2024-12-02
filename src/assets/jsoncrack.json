@@ -1,0 +1,103 @@
+{
+  "tienda": {
+    "nombre": "Mi Tienda",
+    "direccion": "Calle Principal 123",
+    "telefono": "123-456-789"
+  },
+  "inventario": [
+    {
+      "id": 1,
+      "nombre": "Camiseta",
+      "categoria": "Ropa",
+      "precio": 19.99,
+      "stock": 100
+    },
+    {
+      "id": 2,
+      "nombre": "Pantalón",
+      "categoria": "Ropa",
+      "precio": 39.99,
+      "stock": 50
+    },
+    {
+      "id": 3,
+      "nombre": "Zapatillas",
+      "categoria": "Calzado",
+      "precio": 59.99,
+      "stock": 30
+    }
+  ],
+  "pedidos": [
+    {
+      "id": 1,
+      "fecha": "2024-12-01",
+      "cliente": {
+        "nombre": "Juan Pérez",
+        "email": "juan@example.com",
+        "telefono": "987-654-321"
+      },
+      "productos": [
+        {
+          "id": 1,
+          "cantidad": 2
+        },
+        {
+          "id": 3,
+          "cantidad": 1
+        }
+      ],
+      "total": 99.97,
+      "estado": "Enviado"
+    },
+    {
+      "id": 2,
+      "fecha": "2024-12-02",
+      "cliente": {
+        "nombre": "María García",
+        "email": "maria@example.com",
+        "telefono": "456-789-123"
+      },
+      "productos": [
+        {
+          "id": 2,
+          "cantidad": 1
+        }
+      ],
+      "total": 39.99,
+      "estado": "Procesando"
+    }
+  ],
+  "ventas": [
+    {
+      "id": 1,
+      "fecha": "2024-12-01",
+      "productos": [
+        {
+          "id": 1,
+          "cantidad": 2,
+          "precio_unitario": 19.99
+        },
+        {
+          "id": 3,
+          "cantidad": 1,
+          "precio_unitario": 59.99
+        }
+      ],
+      "total": 99.97,
+      "metodo_pago": "Tarjeta de crédito"
+    },
+    {
+      "id": 2,
+      "fecha": "2024-12-02",
+      "productos": [
+        {
+          "id": 2,
+          "cantidad": 1,
+          "precio_unitario": 39.99
+        }
+      ],
+      "total": 39.99,
+      "metodo_pago": "Efectivo"
+    }
+  ]
+}
