@@ -97,6 +97,7 @@ section{
     flex-wrap: wrap;
     flex-direction: column;
     width: 100%;
+    
     background-color: #16213e;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
@@ -109,11 +110,13 @@ section{
 }
 .tituloGestion{
     color: #e94560;
+    margin: 20px 0 0 0;
 }
 
 .tablaGestion{
 	text-align: left;
 	border-collapse: collapse;
+    margin: 20px 0 30px 0;
 }
 
 .tablaGestion th, td{
