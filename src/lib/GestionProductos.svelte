@@ -28,60 +28,92 @@
         console.log('Guardando cambios:', inventario);
     }
 </script>
-      
-<div id="main-container">
-    <table class="tablaGestion">
-        <thead class="encabezadoTablaGestion">
-            <tr>
-                <th>ID</th>
-                <th>Nombre</th>
-                <th>Categoría</th>
-                <th>Precio</th>
-                <th>Stock</th>
-                <th colspan="2">Acciones</th>
-            </tr>
-        </thead>
-        <tbody class="cuerpoTablaGestion">
-            {#each inventario as producto (producto.id)}
-            <tr>
-                <td>{producto.id}</td>
-                <td><input type="text" bind:value={producto.nombre} placeholder="Nombre"></td>
-                <td><input type="text" bind:value={producto.categoria} placeholder="Categoria"></td>
-                <td><input type="number" bind:value={producto.precio} placeholder="Precio"></td>
-                <td><input type="number" bind:value={producto.stock} placeholder="Stock"></td>
-                <td>
-                    <button on:click={() => editarProducto(producto.id, producto)}>Editar</button>
-                </td>
-                <td>
-                    <button on:click={() => eliminarProducto(producto.id)}>Eliminar</button>
-                </td>
-            </tr>
-            {/each}
-            <tr>
-                <td></td>
-                <td><input bind:value={nuevoProducto.nombre} placeholder="Nombre"></td>
-                <td><input bind:value={nuevoProducto.categoria} placeholder="Categoría"></td>
-                <td><input type="number" bind:value={nuevoProducto.precio} placeholder="Precio"></td>
-                <td><input type="number" bind:value={nuevoProducto.stock} placeholder="Stock"></td>
-                <td colspan="2">
-                    <button on:click={agregarProducto}>Agregar Producto</button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+<section>
+    <div class="cajaGestion">
+        <h2 class="tituloGestion">Gestion de Productos</h2>
+        <table class="tablaGestion">
+            <thead class="encabezadoTablaGestion">
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Categoría</th>
+                    <th>Precio</th>
+                    <th>Stock</th>
+                    <th colspan="2">Acciones</th>
+                </tr>
+            </thead>
+            <tbody class="cuerpoTablaGestion">
+                {#each inventario as producto (producto.id)}
+                <tr>
+                    <td>{producto.id}</td>
+                    <td><input type="text" bind:value={producto.nombre} placeholder="Nombre"></td>
+                    <td><input type="text" bind:value={producto.categoria} placeholder="Categoria"></td>
+                    <td><input type="number" bind:value={producto.precio} placeholder="Precio"></td>
+                    <td><input type="number" bind:value={producto.stock} placeholder="Stock"></td>
+                    <td>
+                        <button on:click={() => editarProducto(producto.id, producto)}>Editar</button>
+                    </td>
+                    <td>
+                        <button on:click={() => eliminarProducto(producto.id)}>Eliminar</button>
+                    </td>
+                </tr>
+                {/each}
+                <tr>
+                    <td></td>
+                    <td><input bind:value={nuevoProducto.nombre} placeholder="Nombre"></td>
+                    <td><input bind:value={nuevoProducto.categoria} placeholder="Categoría"></td>
+                    <td><input type="number" bind:value={nuevoProducto.precio} placeholder="Precio"></td>
+                    <td><input type="number" bind:value={nuevoProducto.stock} placeholder="Stock"></td>
+                    <td colspan="2">
+                        <button on:click={agregarProducto}>Agregar Producto</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
 
 <style>
 
-#main-container{
-	width: auto;
+section{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+	width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    color: #e0e0e0;
+    background-color: #1a1a2e;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgba(255, 255, 255, 0.3);
+}
+
+.cajaGestion{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 100%;
+    background-color: #16213e;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    justify-content: center;
+    align-content: center;
+}
+
+.tituloGestion, .tablaGestion{
+    width: 70%;
+}
+.tituloGestion{
+    color: #e94560;
 }
 
 .tablaGestion{
-	background-color: white;
 	text-align: left;
 	border-collapse: collapse;
-	width: 100%;
 }
 
 .tablaGestion th, td{
@@ -89,8 +121,14 @@
     max-height: 20px;
 }
 
+.tablaGestion th{
+    background-color: #0f3460;
+}
+
 .tablaGestion td{
-    color: black;
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #0f3460;
 }
 
 .tablaGestion td button{
@@ -98,28 +136,30 @@
 }
 
 .encabezadoTablaGestion{
-	background-color: #246355;
-	color: white;
+	background-color: #16213e;
+	color: #e94560;
 }
 
-.tablaGestion tr:nth-child(even){
-	background-color: #ddd;
-}
+/* .tablaGestion tr:nth-child(even){
+	background-color: #16213e;
+} */
+
+/* .tablaGestion tr:nth-child(odd){
+	background-color: #184b89;
+} */
 
 .tablaGestion tr:hover td{
-	background-color: #369681;
-	color: black;
+	background-color: #1e2749;
 }
 
 
 .tablaGestion input{
     width: 100%;
     height: 100%;
-    font-size: 18px;
+    font-size: 16px;
     border: none;
     outline: none;
     background-color: transparent;
-    color: black;
 }
 
 .tablaGestion input::placeholder{
@@ -128,6 +168,6 @@
     border: none;
     outline: none;
     background-color: transparent;
-    color: rgba(0, 0, 0, 0.7);
+    color: rgba(255, 255, 255, 0.7);
 }
 </style>
