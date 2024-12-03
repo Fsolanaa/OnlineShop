@@ -1,67 +1,92 @@
 <script>
-      import data from '../assets/jsoncrack.json';
-      
-      let inventario = data.inventario;
-      let nuevoProducto = { id: 0, nombre: '', categoria: '', precio: 0, stock: 0 };
-      
-      function agregarProducto() {
+    let nuevoProducto = { id: 0, nombre: '', categoria: '', precio: 0, stock: 0 };
+    let inventario = JSON.parse(localStorage.getItem("inventario"));
+
+    function agregarProducto() {
         nuevoProducto.id = inventario.length + 1;
         inventario = [...inventario, nuevoProducto];
         nuevoProducto = { id: 0, nombre: '', categoria: '', precio: 0, stock: 0 };
         guardarCambios();
-      }
+    }
       
-      function editarProducto(id, producto) {
+    function editarProducto(id, producto) {
         const index = inventario.findIndex(item => item.id === id);
         if (index !== -1) {
-          inventario[index] = { ...inventario[index], ...producto };
-          inventario = [...inventario];
-          guardarCambios();
+            inventario[index] = { ...inventario[index], ...producto };
+            inventario = [...inventario];
+            guardarCambios();
         }
-      }
+    }
       
-      function eliminarProducto(id) {
+    function eliminarProducto(id) {
         inventario = inventario.filter(item => item.id !== id);
         guardarCambios();
-      }
+    }
       
-      function guardarCambios() {
-        // En un entorno real, aquí enviarías los datos al servidor
+    function guardarCambios() {
+        localStorage.setItem("inventario", JSON.stringify(inventario));
         console.log('Guardando cambios:', inventario);
-      }
-    </script>
+    }
+</script>
       
-      <table>
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Nombre</th>
-                <th>Categoría</th>
-                <th>Precio</th>
-                <th>Stock</th>
-                <th>Acciones</th>
-              </tr>
-            </thead>
-            <tbody>
-              {#each inventario as producto (producto.id)}
-                <tr>
-                  <td>{producto.id}</td>
-                  <td><input type="text" bind:value={producto.nombre} placeholder="Nombre"></td>
-                  <td><input type="text" bind:value={producto.categoria} placeholder="Categoria"></td>
-                  <td><input type="number" bind:value={producto.precio} placeholder="Precio"></td>
-                  <td><input type="number" bind:value={producto.stock} placeholder="Stock"></td>
-                  <td>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Categoría</th>
+            <th>Precio</th>
+            <th>Stock</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+        <tbody>
+            {#each inventario as producto (producto.id)}
+            <tr>
+                <td>{producto.id}</td>
+                <td><input type="text" bind:value={producto.nombre} placeholder="Nombre"></td>
+                <td><input type="text" bind:value={producto.categoria} placeholder="Categoria"></td>
+                <td><input type="number" bind:value={producto.precio} placeholder="Precio"></td>
+                <td><input type="number" bind:value={producto.stock} placeholder="Stock"></td>
+                <td>
                     <button on:click={() => editarProducto(producto.id, producto)}>Editar</button>
                     <button on:click={() => eliminarProducto(producto.id)}>Eliminar</button>
-                  </td>
-                </tr>
-              {/each}
-            </tbody>
-          </table>
+                </td>
+            </tr>
+            {/each}
+            <tr>
+                <td></td>
+                <td><input bind:value={nuevoProducto.nombre} placeholder="Nombre"></td>
+                <td><input bind:value={nuevoProducto.categoria} placeholder="Categoría"></td>
+                <td><input type="number" bind:value={nuevoProducto.precio} placeholder="Precio"></td>
+                <td><input type="number" bind:value={nuevoProducto.stock} placeholder="Stock"></td>
+                <td>
+                    <button on:click={agregarProducto}>Agregar Producto</button>
+                </td>
+            </tr>
+        </tbody>
+</table>
           
-          <h3>Agregar/Editar Producto</h3>
-          <input bind:value={nuevoProducto.nombre} placeholder="Nombre">
-          <input bind:value={nuevoProducto.categoria} placeholder="Categoría">
-          <input type="number" bind:value={nuevoProducto.precio} placeholder="Precio">
-          <input type="number" bind:value={nuevoProducto.stock} placeholder="Stock">
-          <button on:click={agregarProducto}>Agregar Producto</button>
+<!-- <h3>Agregar/Editar Producto</h3>
+<input bind:value={nuevoProducto.nombre} placeholder="Nombre">
+<input bind:value={nuevoProducto.categoria} placeholder="Categoría">
+<input type="number" bind:value={nuevoProducto.precio} placeholder="Precio">
+<input type="number" bind:value={nuevoProducto.stock} placeholder="Stock">
+<button on:click={agregarProducto}>Agregar Producto</button> -->
+
+<style>
+
+td{
+    overflow: hidden;
+}
+input {
+  display: block;
+  width: auto;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  outline: none;
+  background-color: transparent;
+}
+</style>
