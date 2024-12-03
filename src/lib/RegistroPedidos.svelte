@@ -61,7 +61,7 @@ function guardarCambios() {
         <form on:submit|preventDefault={agregarPedido}>
           <label>
             Nombre del cliente:
-            <input bind:value={nuevoPedido.cliente.nombre} required>
+            <input type="text" bind:value={nuevoPedido.cliente.nombre} required>
           </label>
           <label>
             Email del cliente:
