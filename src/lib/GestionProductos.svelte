@@ -1,11 +1,11 @@
 <script>
-    let nuevoProducto = { id: 0, nombre: '', categoria: '', precio: 0, stock: 0 };
+    let nuevoProducto = { id: null, nombre: '', categoria: '', precio: null, stock: null };
     let inventario = JSON.parse(localStorage.getItem("inventario"));
 
     function agregarProducto() {
         nuevoProducto.id = inventario.length + 1;
         inventario = [...inventario, nuevoProducto];
-        nuevoProducto = { id: 0, nombre: '', categoria: '', precio: 0, stock: 0 };
+        nuevoProducto = { id: null, nombre: '', categoria: '', precio: null, stock: null };
         guardarCambios();
     }
       
@@ -29,18 +29,19 @@
     }
 </script>
       
-<table>
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Nombre</th>
-            <th>Categoría</th>
-            <th>Precio</th>
-            <th>Stock</th>
-            <th>Acciones</th>
-        </tr>
-    </thead>
-        <tbody>
+<div id="main-container">
+    <table class="tablaGestion">
+        <thead class="encabezadoTablaGestion">
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Categoría</th>
+                <th>Precio</th>
+                <th>Stock</th>
+                <th colspan="2">Acciones</th>
+            </tr>
+        </thead>
+        <tbody class="cuerpoTablaGestion">
             {#each inventario as producto (producto.id)}
             <tr>
                 <td>{producto.id}</td>
@@ -50,6 +51,8 @@
                 <td><input type="number" bind:value={producto.stock} placeholder="Stock"></td>
                 <td>
                     <button on:click={() => editarProducto(producto.id, producto)}>Editar</button>
+                </td>
+                <td>
                     <button on:click={() => eliminarProducto(producto.id)}>Eliminar</button>
                 </td>
             </tr>
@@ -60,33 +63,71 @@
                 <td><input bind:value={nuevoProducto.categoria} placeholder="Categoría"></td>
                 <td><input type="number" bind:value={nuevoProducto.precio} placeholder="Precio"></td>
                 <td><input type="number" bind:value={nuevoProducto.stock} placeholder="Stock"></td>
-                <td>
+                <td colspan="2">
                     <button on:click={agregarProducto}>Agregar Producto</button>
                 </td>
             </tr>
         </tbody>
-</table>
-          
-<!-- <h3>Agregar/Editar Producto</h3>
-<input bind:value={nuevoProducto.nombre} placeholder="Nombre">
-<input bind:value={nuevoProducto.categoria} placeholder="Categoría">
-<input type="number" bind:value={nuevoProducto.precio} placeholder="Precio">
-<input type="number" bind:value={nuevoProducto.stock} placeholder="Stock">
-<button on:click={agregarProducto}>Agregar Producto</button> -->
+    </table>
+</div>
 
 <style>
 
-td{
-    overflow: hidden;
+#main-container{
+	width: auto;
 }
-input {
-  display: block;
-  width: auto;
-  padding: 10px;
-  font-size: 16px;
-  border: none;
-  border-bottom: 2px solid #ccc;
-  outline: none;
-  background-color: transparent;
+
+.tablaGestion{
+	background-color: white;
+	text-align: left;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+.tablaGestion th, td{
+	padding: 10px;
+    max-height: 20px;
+}
+
+.tablaGestion td{
+    color: black;
+}
+
+.tablaGestion td button{
+    width: 100%;
+}
+
+.encabezadoTablaGestion{
+	background-color: #246355;
+	color: white;
+}
+
+.tablaGestion tr:nth-child(even){
+	background-color: #ddd;
+}
+
+.tablaGestion tr:hover td{
+	background-color: #369681;
+	color: black;
+}
+
+
+.tablaGestion input{
+    width: 100%;
+    height: 100%;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: black;
+}
+
+.tablaGestion input::placeholder{
+    width: 100%;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: rgba(0, 0, 0, 0.7);
 }
 </style>
