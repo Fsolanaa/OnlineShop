@@ -1,6 +1,6 @@
 <script>
     import data from "../assets/jsoncrack.json";
-    let pedidos = data.pedidos;
+    let pedidos = JSON.parse(localStorage.getItem("pedidos"));
     let nuevoPedido = {
         cliente: { nombre: "", email: "", telefono: "" },
         productos: [],
@@ -8,7 +8,7 @@
         estado: "Procesando",
     };
 
-    function agregarPedido() {
+function agregarPedido() {
   const id = pedidos.length + 1;
   const fecha = new Date().toISOString().split('T')[0];
   const productosSeleccionados = nuevoPedido.productos.map(id => {
@@ -36,6 +36,7 @@
     total: 0,
     estado: 'Procesando'
   };
+  guardarCambios();
 }
 
 function calcularTotal(productos) {
@@ -43,6 +44,11 @@ function calcularTotal(productos) {
     const item = data.inventario.find(p => p.id === producto.id);
     return total + (item.precio * producto.cantidad);
   }, 0);
+}
+
+function guardarCambios() {
+    localStorage.setItem("pedidos", JSON.stringify(pedidos));
+    console.log('Guardando cambios:', pedidos);
 }
 
 </script>
