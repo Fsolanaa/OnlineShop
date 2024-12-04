@@ -1,5 +1,6 @@
 <script>
-    import data from "../assets/jsoncrack.json";
+    let data = JSON.parse(localStorage.getItem("datos"))
+    let inventario = JSON.parse(localStorage.getItem("inventario"))
     let pedidos = JSON.parse(localStorage.getItem("pedidos"));
     let nuevoPedido = {
         cliente: { nombre: "", email: "", telefono: "" },
