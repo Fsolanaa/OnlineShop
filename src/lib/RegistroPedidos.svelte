@@ -9,13 +9,19 @@
         estado: "Procesando",
     };
 
+    let cantidades = {};
+
 function agregarPedido() {
   const id = pedidos.length + 1;
+  const cantidad = 0;
   const fecha = new Date().toISOString().split('T')[0];
-  const productosSeleccionados = nuevoPedido.productos.map(id => {
-    const producto = data.inventario.find(p => p.id === id);
-    return { id, cantidad: 1 }; // Asumimos cantidad 1 por simplicidad
-  });
+  
+  const productosSeleccionados = nuevoPedido.productos
+    .filter(productoId => cantidades[productoId] > 0)
+    .map(productoId => ({
+      id: productoId,
+      cantidad: cantidades[productoId]
+    }));
   
   const total = calcularTotal(productosSeleccionados);
   
@@ -37,6 +43,7 @@ function agregarPedido() {
     total: 0,
     estado: 'Procesando'
   };
+  cantidades = {};
   guardarCambios();
 }
 
@@ -74,11 +81,13 @@ function guardarCambios() {
           </label>
           
           <h3>Productos</h3>
-          {#each data.inventario as producto}
+          {#each inventario as producto}
             <label>
-              <input type="checkbox" bind:group={nuevoPedido.productos} value={producto.id}>
-              {producto.nombre} - ${producto.precio}
+                <input type="checkbox" bind:group={nuevoPedido.productos} value={producto.id}>
+                <input type="number" bind:value={cantidades[producto.id]} min="0" max={producto.stock} placeholder="0">
+              {producto.nombre} - {producto.precio}
             </label>
+            
           {/each}
           
           <button type="submit">Registrar pedido</button>
