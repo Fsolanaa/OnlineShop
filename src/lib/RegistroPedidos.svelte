@@ -2,6 +2,7 @@
     let data = JSON.parse(localStorage.getItem("datos"))
     let inventario = JSON.parse(localStorage.getItem("inventario"))
     let pedidos = JSON.parse(localStorage.getItem("pedidos"));
+    let clientes = JSON.parse(localStorage.getItem("clientes"));
     let nuevoPedido = {
         cliente: { nombre: "", email: "", telefono: "" },
         productos: [],
@@ -33,6 +34,16 @@ function agregarPedido() {
     total,
     estado: nuevoPedido.estado
   };
+
+  const cliente = {
+    id: clientes.length + 1,
+    nombre: nuevoPedido.cliente.nombre,
+    email: nuevoPedido.cliente.email,
+    telefono: nuevoPedido.cliente.telefono,
+    pedidosCliente: [{id}]
+  };
+
+  clientes = [...clientes, cliente];
   
   pedidos = [...pedidos, pedido];
   
@@ -56,7 +67,9 @@ function calcularTotal(productos) {
 
 function guardarCambios() {
     localStorage.setItem("pedidos", JSON.stringify(pedidos));
+    localStorage.setItem("clientes", JSON.stringify(clientes));
     console.log('Guardando cambios:', pedidos);
+    console.log('Guardando cambios:', clientes);
 }
 
 </script>
