@@ -95,7 +95,7 @@ function guardarCambios() {
           
           <h3>Productos</h3>
           {#each inventario as producto}
-            <label>
+            <label class="inputPedido">
                 <input type="checkbox" bind:group={nuevoPedido.productos} value={producto.id}>
                 {#if nuevoPedido.productos.includes(producto.id)}
                     <input type="number" bind:value={cantidades[producto.id]} min="1" max={producto.stock}>   
@@ -165,10 +165,22 @@ function guardarCambios() {
     form {
       display: flex;
       flex-direction: column;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-content: center;
     }
   
     label {
       margin-bottom: 10px;
+    }
+
+    .inputPedido{
+        width: 60%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-content: space-between;
     }
   
     input[type="text"],
