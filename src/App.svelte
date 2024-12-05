@@ -10,6 +10,7 @@
   let inventario = JSON.parse(localStorage.getItem("inventario"));
   let pedidos = JSON.parse(localStorage.getItem("pedidos"));
   let ventas = JSON.parse(localStorage.getItem("ventas"));
+  let clientes = JSON.parse(localStorage.getItem("clientes"));
 
 </script>
 

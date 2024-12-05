@@ -9,6 +9,7 @@ localStorage.setItem("tienda", JSON.stringify(json.tienda));
 localStorage.setItem("inventario", JSON.stringify(json.inventario));
 localStorage.setItem("pedidos", JSON.stringify(json.pedidos));
 localStorage.setItem("ventas", JSON.stringify(json.ventas));
+localStorage.setItem("clientes", JSON.stringify(json.clientes));
 
 const app = mount(App, {
   target: document.getElementById('app'),

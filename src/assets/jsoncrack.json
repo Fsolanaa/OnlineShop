@@ -99,5 +99,18 @@
       "total": 39.99,
       "metodo_pago": "Efectivo"
     }
+  ],
+  "clientes":[
+    {
+        "id": 1,
+        "nombre": "Juan Pérez",
+        "email": "juan@example.com",
+        "telefono": "987-654-321",
+        "pedidos": [
+            {
+                "idPedido": 1
+            }
+        ]
+    }
   ]
 }
