@@ -84,7 +84,9 @@ function guardarCambios() {
           {#each inventario as producto}
             <label>
                 <input type="checkbox" bind:group={nuevoPedido.productos} value={producto.id}>
-                <input type="number" bind:value={cantidades[producto.id]} min="0" max={producto.stock} placeholder="0">
+                {#if nuevoPedido.productos.includes(producto.id)}
+                    <input type="number" bind:value={cantidades[producto.id]} min="1" max={producto.stock}>   
+                {/if}
               {producto.nombre} - {producto.precio}
             </label>
             
