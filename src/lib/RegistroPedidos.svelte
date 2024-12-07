@@ -15,7 +15,6 @@
 
 function agregarPedido() {
   const id = pedidos.length + 1;
-  const cantidad = 0;
   const fecha = new Date().toISOString().split('T')[0];
   
   const productosSeleccionados = nuevoPedido.productos
@@ -59,6 +58,8 @@ function agregarPedido() {
     estado: 'Procesando'
   };
   cantidades = {};
+
+  editarProducto(productosSeleccionados)
   guardarCambios();
 }
 
@@ -76,10 +77,22 @@ function calcularTotalUnidades(productos) {
 }
 
 
+function editarProducto(productos) {
+    productos.forEach(producto => {
+        const index = inventario.findIndex(item => item.id === producto.id);
+        if (index !== -1) {
+            inventario[index].stock -= producto.cantidad;
+            inventario = [...inventario];
+            
+        }
+    });
+        
+    }
 
 function guardarCambios() {
     localStorage.setItem("pedidos", JSON.stringify(pedidos));
     localStorage.setItem("clientes", JSON.stringify(clientes));
+    localStorage.setItem("inventario", JSON.stringify(inventario));
     console.log('Guardando cambios:', pedidos);
     console.log('Guardando cambios:', clientes);
 }
@@ -110,7 +123,7 @@ function guardarCambios() {
             <label class="inputPedido">
                 <input type="checkbox" bind:group={nuevoPedido.productos} value={producto.id}>
                 {#if nuevoPedido.productos.includes(producto.id)}
-                    <input type="number" bind:value={cantidades[producto.id]} min="1" max={producto.stock}>   
+                    <input type="number" bind:value={cantidades[producto.id]} min="1" max={producto.stock}>
                 {/if}
               {producto.nombre} - {producto.precio}
             </label>
