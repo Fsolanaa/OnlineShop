@@ -6,6 +6,7 @@
     let nuevoPedido = {
         cliente: { nombre: "", email: "", telefono: "" },
         productos: [],
+        totalUnidades: 0,
         total: 0,
         estado: "Procesando",
     };
@@ -24,6 +25,7 @@ function agregarPedido() {
       cantidad: cantidades[productoId]
     }));
   
+  const totalUnidades = calcularTotalUnidades(productosSeleccionados);
   const total = calcularTotal(productosSeleccionados);
   
   const pedido = {
@@ -31,7 +33,8 @@ function agregarPedido() {
     fecha,
     cliente: nuevoPedido.cliente,
     productos: productosSeleccionados,
-    total,
+    totalUnidades: totalUnidades,
+    total: total,
     estado: nuevoPedido.estado
   };
 
@@ -51,6 +54,7 @@ function agregarPedido() {
   nuevoPedido = {
     cliente: { nombre: '', email: '', telefono: '' },
     productos: [],
+    totalUnidades: 0,
     total: 0,
     estado: 'Procesando'
   };
@@ -64,6 +68,14 @@ function calcularTotal(productos) {
     return total + (item.precio * producto.cantidad);
   }, 0);
 }
+function calcularTotalUnidades(productos) {
+  return productos.reduce((total, producto) => {
+    const item = data.inventario.find(p => p.id === producto.id);
+    return total + (producto.cantidad);
+  }, 0);
+}
+
+
 
 function guardarCambios() {
     localStorage.setItem("pedidos", JSON.stringify(pedidos));
@@ -118,6 +130,7 @@ function guardarCambios() {
               <th>ID</th>
               <th>Fecha</th>
               <th>Cliente</th>
+              <th>Total Unidades</th>
               <th>Total</th>
               <th>Estado</th>
             </tr>
@@ -128,6 +141,7 @@ function guardarCambios() {
                 <td>{pedido.id}</td>
                 <td>{pedido.fecha}</td>
                 <td>{pedido.cliente.nombre}</td>
+                <td>{pedido.totalUnidades}</td>
                 <td>${pedido.total.toFixed(2)}</td>
                 <td>{pedido.estado}</td>
               </tr>
