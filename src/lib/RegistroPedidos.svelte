@@ -166,10 +166,12 @@ function guardarCambios() {
 </main>
 <style>
     main {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
       width: 100%;
       max-width: 1200px;
       margin: auto;
-      padding: 20px;
       font-family: Arial, sans-serif;
       color: #e0e0e0;
       background-color: #1a1a2e;
@@ -219,7 +221,7 @@ function guardarCambios() {
       border: 1px solid #0f3460;
       background-color: #1a1a2e;
       color: #e0e0e0;
-      border-radius: 3px;
+      border-radius: 15px;
     }
   
     input[type="checkbox"] {
