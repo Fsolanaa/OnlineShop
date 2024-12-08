@@ -173,4 +173,8 @@ section{
     background-color: transparent;
     color: rgba(255, 255, 255, 0.7);
 }
+
+button{
+    background-color: #e94560;
+}
 </style>
