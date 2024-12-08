@@ -1,8 +1,7 @@
 <script>
   import Router, { location, link } from "svelte-spa-router";
   import Pedidos from "./lib/RegistroPedidos.svelte";
-  import Inventario from "./lib/ControlInventario.svelte";
-  import Productos from "./lib/GestionProductos.svelte";
+  import Inventario from "./lib/GestionProductos.svelte";
   import Ventas from "./lib/InformeVentas.svelte";
 
   let datos = JSON.parse(localStorage.getItem("datos"));
@@ -19,7 +18,6 @@
     <ul>
       <li><a href="/pedidos" use:link>Pedidos</a></li>
       <li><a href="/inventario" use:link>Inventario</a></li>
-      <li><a href="/productos" use:link>Productos</a></li>
       <li><a href="/ventas" use:link>Ventas</a></li>
   </ul>
   </nav>
@@ -30,7 +28,6 @@
     routes={{      
       "/pedidos": Pedidos,
       "/inventario": Inventario,
-      "/productos": Productos,
       "/ventas": Ventas,
     }}
   />
