@@ -45,7 +45,7 @@
     width: 100%;
     background-color: #1a1a2e;
     padding: 1rem;
-    box-shadow: 0 2px 5px rgba(255, 255, 255, 0.3);
+    box-shadow: 0 2px 5px #e94560;
     border-radius: 20px;
   }
 
@@ -68,8 +68,8 @@
   }
 
   a:hover {
-    background-color: #16213e;
-    color: white;
+    filter: drop-shadow(1px 1px 5px #e94560);
+    color: #e94560;
     transform: scale(1.05);
   }
 

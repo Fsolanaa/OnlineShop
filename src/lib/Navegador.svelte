@@ -4,11 +4,9 @@
 
 <nav>
     <ul>
-        <li><a href="/" use:link>Inicio</a></li>
         <li><a href="/pedidos" use:link>Pedidos</a></li>
         <li><a href="/inventario" use:link>Inventario</a></li>
         <li><a href="/productos" use:link>Productos</a></li>
-        <li><a href="/ventas" use:link>Ventas</a></li>
     </ul>
 </nav>
 
@@ -18,6 +16,7 @@
         padding: 1rem;
         box-shadow: 0 2px 5px rgba(0,0,0,0.3); /* Sombra sutil */
     }
+    
 
     ul {
         list-style-type: none;

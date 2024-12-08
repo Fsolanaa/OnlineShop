@@ -240,9 +240,14 @@ function guardarCambios() {
     }
   
     button:hover {
-      background-color: #0f3460;
-      color: #e94560;
+      background-color: #e94560;
+      color: #16213e;
+      box-shadow: 1px 1px 5px #e94560;
+      
     }
+    
+    
+    
   
     table {
       width: 100%;

@@ -97,7 +97,6 @@ section{
     flex-wrap: wrap;
     flex-direction: column;
     width: 100%;
-    
     background-color: #16213e;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
@@ -175,6 +174,13 @@ section{
 }
 
 button{
+    background-color: #fff;
+    color: #e94560;
+}
+button:hover{
     background-color: #e94560;
+    color: #0f3460;
+    box-shadow:1px 1px 5px #e94560;
+    border-color: solid 1px #e94560;
 }
 </style>
