@@ -241,7 +241,7 @@ function guardarCambios() {
   
     button:hover {
       background-color: #0f3460;
-      color: #e0e0e0;
+      color: #e94560;
     }
   
     table {
