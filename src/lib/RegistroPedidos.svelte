@@ -165,108 +165,175 @@ function guardarCambios() {
       
 </main>
 <style>
-    main {
-      display: flex;
-      flex-direction: column;
-      flex-wrap: wrap;
-      width: 100%;
-      max-width: 1200px;
-      margin: auto;
-      font-family: Arial, sans-serif;
-      color: #e0e0e0;
-      background-color: #1a1a2e;
-      border-radius: 20px;
-      box-shadow: 0 2px 5px rgba(255, 255, 255, 0.3);
-    }
-  
-    h1, h2, h3 {
-      color: #e94560;
-    }
-  
-    section {
-      background-color: #16213e;
-      padding: 20px;
-      margin-bottom: 20px;
-      border-radius: 5px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-    }
-  
-    form {
-      display: flex;
-      flex-direction: column;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-content: center;
-    }
-  
-    label {
-      margin-bottom: 10px;
-    }
+   main {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  font-family: Arial, sans-serif;
+  color: #e0e0e0;
+  background-color: #1a1a2e;
+  border-radius: 20px;
+  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.3);
+  padding: 20px;
+}
 
-    .inputPedido{
-        width: 60%;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        align-content: space-between;
-    }
-  
-    input[type="text"],
-    input[type="email"],
-    input[type="tel"] {
-      width: 100%;
-      padding: 8px;
-      margin-top: 5px;
-      border: 1px solid #0f3460;
-      background-color: #1a1a2e;
-      color: #e0e0e0;
-      border-radius: 15px;
-    }
-  
-    input[type="checkbox"] {
-      margin-right: 10px;
-    }
-  
-    button {
-      background-color: #e94560;
-      color: #1a1a2e;
-      border: none;
-      padding: 10px 20px;
-      margin-top: 10px;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-  
-    button:hover {
-      background-color: #e94560;
-      color: #16213e;
-      box-shadow: 1px 1px 5px #e94560;
-      
-    }
-    
-    
-    
-  
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-  
-    th, td {
-      padding: 10px;
-      text-align: left;
-      border-bottom: 1px solid #0f3460;
-    }
-  
-    th {
-      background-color: #0f3460;
-      color: #e94560;
-    }
-  
-    tr:hover {
-      background-color: #1e2749;
-    }
+h1, h2, h3 {
+  color: #e94560;
+}
+
+section {
+  background-color: #16213e;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+}
+
+label {
+  margin-bottom: 10px;
+}
+
+.inputPedido {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"] {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #0f3460;
+  background-color: #1a1a2e;
+  color: #e0e0e0;
+  border-radius: 15px;
+}
+
+input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+button {
+  background-color: #e94560;
+  color: #1a1a2e;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #e94560;
+  color: #16213e;
+  box-shadow: 1px 1px 5px #e94560;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #0f3460;
+}
+
+th {
+  background-color: #0f3460;
+  color: #e94560;
+}
+
+tr:hover {
+  background-color: #1e2749;
+}
+
+/* Media Queries */
+
+/* Small devices (phones, less than 600px) */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.8em;
+  }
+
+  section {
+    padding: 15px;
+  }
+
+  .inputPedido {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="number"] {
+    font-size: 0.9em;
+  }
+
+  button {
+    padding: 8px 16px;
+    font-size: 0.9em;
+  }
+
+  table {
+    font-size: 0.8em;
+  }
+
+  th, td {
+    padding: 5px;
+  }
+}
+
+/* Medium devices (tablets, 600px to 1024px) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  h1 {
+    font-size: 2.4em;
+  }
+
+  section {
+    padding: 18px;
+  }
+
+  .inputPedido {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  button {
+    padding: 9px 18px;
+  }
+
+  table {
+    font-size: 0.9em;
+  }
+
+  th, td {
+    padding: 8px;
+  }
+}
+
   </style>
   

@@ -13,6 +13,13 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Asegura que el box-sizing se aplique a todos los elementos */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 a {
   font-weight: 500;
   color: #646cff;
@@ -24,10 +31,14 @@ a:hover {
 
 body {
   margin: 0;
+  padding: 0;
   display: flex;
-  place-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   min-width: 320px;
   min-height: 100vh;
+  overflow-x: hidden; /* Evita desplazamiento horizontal */
 }
 
 h1 {
@@ -44,6 +55,7 @@ h1 {
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  width: 100%; /* Asegura que no exceda el ancho de la pantalla */
 }
 
 button {
@@ -77,3 +89,27 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+/* Media Queries for Responsiveness */
+
+/* Small devices (phones, less than 600px) */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2.2em;
+  }
+
+  .card {
+    padding: 1em;
+  }
+
+  #app {
+    padding: 1rem;
+  }
+
+  button {
+    font-size: 0.9em;
+    padding: 0.5em 1em;
+  }
+}
+
+/* Medium devices (
