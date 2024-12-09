@@ -3,6 +3,7 @@
   import Pedidos from "./lib/RegistroPedidos.svelte";
   import Inventario from "./lib/GestionProductos.svelte";
   import Ventas from "./lib/InformeVentas.svelte";
+  import ExportarPDF from "./lib/Exportarpdf.svelte";
 
   let datos = JSON.parse(localStorage.getItem("datos"));
   let tienda = JSON.parse(localStorage.getItem("tienda"));
@@ -24,6 +25,7 @@
 </header>
 
 <main>
+    <ExportarPDF/>
   <Router
     routes={{      
       "/pedidos": Pedidos,
