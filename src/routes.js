@@ -6,8 +6,7 @@ import Ventas from './lib/InformeVentas.svelte'
 const routes = {
   '/': Inicio,
   '/pedidos': Pedidos,
-  '/inventario': Inventario,
-  '/ventas': Ventas
+  '/inventario': Inventario
 
 }
 
