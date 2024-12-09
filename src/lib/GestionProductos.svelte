@@ -74,14 +74,13 @@
 </section>
 
 <style>
-
-section{
+section {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: center;
     align-content: center;
-	width: 100%;
+    
     max-width: 1200px;
     margin: auto;
     padding: 20px;
@@ -92,7 +91,7 @@ section{
     box-shadow: 0 2px 5px rgba(255, 255, 255, 0.3);
 }
 
-.cajaGestion{
+.cajaGestion {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -104,58 +103,50 @@ section{
     align-content: center;
 }
 
-.tituloGestion, .tablaGestion{
+.tituloGestion, .tablaGestion {
     width: 70%;
 }
-.tituloGestion{
+
+.tituloGestion {
     color: #e94560;
     margin: 20px 0 0 0;
 }
 
-.tablaGestion{
-	text-align: left;
-	border-collapse: collapse;
+.tablaGestion {
+    text-align: left;
+    border-collapse: collapse;
     margin: 20px 0 30px 0;
 }
 
-.tablaGestion th, td{
-	padding: 10px;
+.tablaGestion th, td {
+    padding: 10px;
     max-height: 20px;
 }
 
-.tablaGestion th{
+.tablaGestion th {
     background-color: #0f3460;
 }
 
-.tablaGestion td{
+.tablaGestion td {
     padding: 10px;
     text-align: left;
     border-bottom: 1px solid #0f3460;
 }
 
-.tablaGestion td button{
+.tablaGestion td button {
     width: 100%;
 }
 
-.encabezadoTablaGestion{
-	background-color: #16213e;
-	color: #e94560;
+.encabezadoTablaGestion {
+    background-color: #16213e;
+    color: #e94560;
 }
 
-/* .tablaGestion tr:nth-child(even){
-	background-color: #16213e;
-} */
-
-/* .tablaGestion tr:nth-child(odd){
-	background-color: #184b89;
-} */
-
-.tablaGestion tr:hover td{
-	background-color: #1e2749;
+.tablaGestion tr:hover td {
+    background-color: #1e2749;
 }
 
-
-.tablaGestion input{
+.tablaGestion input {
     width: 100%;
     height: 100%;
     font-size: 16px;
@@ -164,7 +155,7 @@ section{
     background-color: transparent;
 }
 
-.tablaGestion input::placeholder{
+.tablaGestion input::placeholder {
     width: 100%;
     font-size: 16px;
     border: none;
@@ -173,14 +164,73 @@ section{
     color: rgba(255, 255, 255, 0.7);
 }
 
-button{
+button {
     background-color: #fff;
     color: #e94560;
 }
-button:hover{
+
+button:hover {
     background-color: #e94560;
     color: #0f3460;
-    box-shadow:1px 1px 5px #e94560;
+    box-shadow: 1px 1px 5px #e94560;
     border-color: solid 1px #e94560;
 }
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+    .tituloGestion, .tablaGestion {
+        width: 90%;
+    }
+
+    section {
+        padding: 15px;
+    }
+
+    .tablaGestion th, .tablaGestion td {
+        padding: 8px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    .tituloGestion {
+        font-size: 1.5rem;
+    }
+
+    .tablaGestion th, .tablaGestion td {
+        font-size: 12px;
+        padding: 6px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    section {
+        padding: 10px;
+    }
+
+    .tituloGestion {
+        font-size: 1.2rem;
+        text-align: center;
+    }
+
+    .tablaGestion {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .tablaGestion th, .tablaGestion td {
+        font-size: 10px;
+        padding: 4px;
+    }
+
+    button {
+        font-size: 12px;
+    }
+}
+
 </style>
